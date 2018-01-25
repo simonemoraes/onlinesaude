@@ -19,15 +19,22 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/css/font-awesome.min.css",
-        "assets/css/bootstrap.min.css",
-        "assets/css/style.css"
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "styles.css",
+        "assets/css/google-api-benchNine.css",
+        "assets/css/google-api-openSanz.css"
+
       ],
       "scripts": [
+        "assets/js/modernizr.js",
+        "assets/js/html5shiv.js",
+        "assets/js/respond.min.js",
         "assets/js/jquery-2.1.1.js",
+        "assets/js/maps-api.js",
         "assets/js/gmaps.js",
         "assets/js/smoothscroll.js",
-        "assets/js/bootstrap.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "assets/js/custom.js"
       ],
       "environmentSource": "environments/environment.ts",
