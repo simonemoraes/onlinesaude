@@ -24,18 +24,15 @@
         "styles.css",
         "assets/css/google-api-benchNine.css",
         "assets/css/google-api-openSanz.css"
-
       ],
       "scripts": [
         "assets/js/modernizr.js",
         "assets/js/html5shiv.js",
         "assets/js/respond.min.js",
-        "assets/js/jquery-2.1.1.js",
-        "assets/js/maps-api.js",
+        "../node_modules/jquery/dist/jquery.min.js",
         "assets/js/gmaps.js",
-        "assets/js/smoothscroll.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "assets/js/custom.js"
+        "assets/js/meujs.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

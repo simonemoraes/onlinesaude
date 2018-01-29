@@ -1,6 +1,6 @@
 <ng-content></ng-content>
 <!-- contact section starts here -->
-<section class="contact">
+<section class="contact contato">
   <div class="container">
     <div class="row">
       <div class="contact-caption clearfix">
@@ -8,24 +8,28 @@
           <h2>Contato</h2>
         </div>
         <div class="col-md-5 contact-info text-left">
-          <h3>contact information</h3>
+          <h3>informações de Contato</h3>
           <div class="info-detail">
-            <ul><li><i class="fa fa-calendar"></i><span>Monday - Friday:</span> 9:30 AM to 6:30 PM</li></ul>
-            <ul><li><i class="fa fa-map-marker"></i><span>Address:</span> 123 Some Street , London, UK, CP 123</li></ul>
-            <ul><li><i class="fa fa-phone"></i><span>Phone:</span> (032) 987-1235</li></ul>
-            <ul><li><i class="fa fa-fax"></i><span>Fax:</span> (123) 984-1234</li></ul>
-            <ul><li><i class="fa fa-envelope"></i><span>Email:</span> info@doctor.com</li></ul>
+            <ul><li><i class="fa fa-calendar"></i><span>Segunda - Sexta:</span> 9:30 as 19:00</li></ul>
+            <ul><li><p><i class="fa fa-map-marker"></i><span>End:</span> Av Comendador Teles, 1758 Lt.03 Qd.06 - São João de Meriti - RJ</p></li></ul>
+            <ul><li><i class="fa fa-phone"></i><span>Telefone:</span> (21) 98740-4766</li></ul>
+            <!--<ul><li><i class="fa fa-fax"></i><span>Fax:</span> (123) 984-1234</li></ul>-->
+            <ul><li><i class="fa fa-envelope"></i><span>Email:</span> contato@dtconsultoria.com.br</li></ul>
           </div>
         </div>
+
+        <h4>{{ f.valid }}
+        {{ f.value | json }}</h4>
         <div class="col-md-6 col-md-offset-1 contact-form">
           <h3>Deixe sua Mensagem</h3>
 
-          <form class="form">
-            <input class="name" type="text" placeholder="Nome">
-            <input class="email" type="email" placeholder="Email">
-            <input class="phone" type="text" placeholder="Telefone:">
-            <textarea class="message" name="message" id="message" cols="30" rows="10" placeholder="Mensagem"></textarea>
-            <input class="submit-btn" type="submit" value="SUBMIT">
+          <form #f="ngForm">
+            <input class="name" type="text" name="nome" ngModel placeholder="Nome">
+            <input class="email" type="email" name="email" ngModel placeholder="Email">
+            <input class="phone" type="text" name="telefone" ngModel placeholder="Telefone:">
+            <textarea class="message" name="message" name="mensagem" ngModel id="message" cols="30" rows="10" placeholder="Mensagem"></textarea>
+            <button class="botao" (click)="enviar(f.value, $event)">Enviar</button>
+            <!--<input class="btn btn-danger"  (click)="enviar()"  value="Enviar">-->
           </form>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule  } from '@angular/forms'
+import {HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { MapaComponent } from './contato/mapa/mapa.component';
 import { RodapeComponent } from './layout/rodape/rodape.component';
 import { PlanosComponent } from './planos/planos.component';
 import { ProdutosComponent } from './produtos/produtos.component';
+import {ContatoService} from "./contato/contato.service";
 
 
 @NgModule({
@@ -32,9 +34,12 @@ import { ProdutosComponent } from './produtos/produtos.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+      FormsModule,
+      HttpClientModule,
+
+      AppRoutingModule
   ],
-  providers: [],
+  providers: [ContatoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

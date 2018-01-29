@@ -497,6 +497,7 @@ li a.active {
 }
 .person img {
     width: 100%;
+    padding: 10px;
 }
 .person-detail {
     padding: 10px;
@@ -645,18 +646,33 @@ li a.active {
     padding-top: 15px;
     text-align: right;
 }
-.contact-form input.submit-btn {
+.botao{
     width: 180px;
     height: 50px;
     float: right;
     font-size: 24px;
     color: #fff;
-    background: url(assets/img/btn-bg.jpg);
-    background-repeat: no-repeat;
+    background: black;
+    /*background: url(assets/img/btn-bg.jpg);*/
+    /*background-repeat: no-repeat;*/
     padding: 0;
     font-family: 'BenchNine', sans-serif;
     font-weight: bold;
+    margin-bottom: 12px;
+    border: 0;
 }
+/*.contact-form input.submit-btn {*/
+    /*width: 180px;*/
+    /*height: 50px;*/
+    /*float: right;*/
+    /*font-size: 24px;*/
+    /*color: #fff;*/
+    /*background: url(assets/img/btn-bg.jpg);*/
+    /*background-repeat: no-repeat;*/
+    /*padding: 0;*/
+    /*font-family: 'BenchNine', sans-serif;*/
+    /*font-weight: bold;*/
+/*}*/
 .contact-form {
     padding-right: 40px;
 }
@@ -931,6 +947,9 @@ responsive area
     .carousel-control .icon-prev {
         margin-top: 30px;
     }
+    .carousel-inner>.item>img{
+        height: 250px;
+    }
     .plans h2 {
         font-size: 50px;
         color: #42b3e5;
@@ -951,6 +970,81 @@ responsive area
     }
     h4 {
         font-size: 18px !important;
+    }
+    .person img{
+        height: 220px;
+    }
+    #person-datail-bradesco{
+        background-color: #607D8B;
+    }
+    #arrow-bottom-bradesco{
+        background: #607D8B;
+    }
+    .single-member:hover #person-datail-bradesco {
+        background: #2a2a2a;
+    }
+    .single-member:hover #arrow-bottom-bradesco{
+        background: #2a2a2a;
+    }
+    #person-datail-amil{
+        background-color: #3ba0cc;
+    }
+    #arrow-top-amil{
+        background: #3ba0cc;
+    }
+    .single-member:hover #person-datail-amil {
+        background: #2a2a2a;
+    }
+    .single-member:hover #arrow-top-amil{
+        background: #2a2a2a;
+    }
+    #person-datail-golden{
+        background-color: #607D8B;
+    }
+    #arrow-bottom-golden{
+        background: #607D8B;
+    }
+    .single-member:hover #person-datail-golden {
+        background: #2a2a2a;
+    }
+    .single-member:hover #arrow-bottom-golden{
+        background: #2a2a2a;
+    }
+    #person-datail-assim{
+        background-color: #3ba0cc;
+    }
+    #arrow-top-assim{
+        background: #3ba0cc;
+    }
+    .single-member:hover #person-datail-assim {
+        background: #2a2a2a;
+    }
+    .single-member:hover #arrow-top-assim{
+        background: #2a2a2a;
+    }
+    #person-datail-unimed{
+        background-color: #607D8B;
+    }
+    #arrow-bottom-unimed{
+        background: #607D8B;
+    }
+    .single-member:hover #person-datail-unimed {
+        background: #2a2a2a;
+    }
+    .single-member:hover #arrow-bottom-unimed{
+        background: #2a2a2a;
+    }
+    #person-datail-sulamerica{
+        background-color: #3ba0cc;
+    }
+    #arrow-top-sulamerica{
+        background: #3ba0cc;
+    }
+    .single-member:hover #person-datail-sulamerica {
+        background: #2a2a2a;
+    }
+    .single-member:hover #arrow-top-sulamerica{
+        background: #2a2a2a;
     }
     .contact-caption {
         margin-top: 38%;
