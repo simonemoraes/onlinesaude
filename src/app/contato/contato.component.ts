@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ContatoService} from "./contato.service";
+import {ContatoService} from './contato.service';
 
 @Component({
   selector: 'app-contato',
@@ -7,6 +7,8 @@ import {ContatoService} from "./contato.service";
   styleUrls: ['./contato.component.css']
 })
 export class ContatoComponent implements OnInit {
+
+  public mensagem: string;
 
   constructor(private srvContatoService: ContatoService) { }
 
@@ -16,9 +18,9 @@ export class ContatoComponent implements OnInit {
   enviar(formulario, e) {
     e.preventDefault(e)
 
-    console.log(formulario)
+      let f = JSON.stringify(formulario)
 
-      this.srvContatoService.enviarFormulario(formulario).subscribe( resp => console.log(resp))
+      this.srvContatoService.enviarFormulario(f).subscribe( resp => {console.log(resp)})
   }
 
 }

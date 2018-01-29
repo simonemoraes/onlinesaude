@@ -18,10 +18,17 @@
           </div>
         </div>
 
-        <h4>{{ f.valid }}
-        {{ f.value | json }}</h4>
+        <!--<h4>{{ f.valid }}-->
+        <!--{{ f.value | json }}</h4>-->
         <div class="col-md-6 col-md-offset-1 contact-form">
           <h3>Deixe sua Mensagem</h3>
+
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{ mensagem }}
+          </div>
 
           <form #f="ngForm">
             <input class="name" type="text" name="nome" ngModel placeholder="Nome">

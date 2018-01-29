@@ -26,9 +26,6 @@
         "assets/css/google-api-openSanz.css"
       ],
       "scripts": [
-        "assets/js/modernizr.js",
-        "assets/js/html5shiv.js",
-        "assets/js/respond.min.js",
         "../node_modules/jquery/dist/jquery.min.js",
         "assets/js/gmaps.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
