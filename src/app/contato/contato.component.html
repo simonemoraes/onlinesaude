@@ -23,55 +23,63 @@
         <div class="col-md-6 col-md-offset-1 contact-form">
           <h3>Deixe sua Mensagem</h3>
 
-          <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+          <!--<div class="alert alert-danger alert-dismissible" role="alert">-->
+            <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+              <!--<span aria-hidden="true">&times;</span>-->
+            <!--</button>-->
 
-          </div>
+          <!--</div>-->
 
           {{ f.valid }}
           {{ f.value | json }}
 
           <form #f="ngForm" novalidate (ngSubmit)="enviar(f)">
-            <div class="form-group"
-                 [class.has-error]="!nome.valid && nome.touched"
-                  [class.has-feedback]="!nome.valid && nome.touched">
-              <input class="form-control" type="text" name="nome" required
-                     [(ngModel)]="contato.nome" placeholder="Nome"
-                     #nome="ngModel">
-              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!nome.valid && nome.touched"></span>
+
+            <div class="form-group" [class.has-error]="!nome.valid && nome.touched" [class.has-feedback]="!nome.valid && nome.touched">
+
+              <input class="form-control" type="text" name="nome" required [(ngModel)]="contato.nome" placeholder="Nome" #nome="ngModel">
+              <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!nome.valid && nome.touched"></span>
               <span id="nome" class="sr-only" *ngIf="!nome.valid && nome.touched">(error)</span>
-              <div class="alert alert-danger" role="alert" *ngIf="!nome.valid && nome.touched">Nome é obrigatório.</div>
+
+              <!--<div class="alert alert-danger" role="alert" *ngIf="!nome.valid && nome.touched">Nome é obrigatório.</div>-->
             </div>
 
-            <div class="form-group"
-                 [class.has-error]="!email.valid && email.touched"
-                 [class.has-feedback]="!email.valid && email.touched">
-              <input class="form-control email" type="email" name="email" required email [(ngModel)]="contato.email" placeholder="Email" #email="ngModel">
-              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!email.valid && email.touched"></span>
+            <div class="form-group" [class.has-error]="!email.valid && email.touched" [class.has-feedback]="!email.valid && email.touched">
+
+              <input class="form-control" type="email" name="email" required email [(ngModel)]="contato.email" placeholder="Email" #email="ngModel">
+              <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!email.valid && email.touched"></span>
               <span id="email" class="sr-only" *ngIf="!email.valid && email.touched">(error)</span>
-              <div class="alert alert-danger" role="alert" *ngIf="!email.valid && email.touched">Email é obrigatório.</div>
+
+              <!--<div class="alert alert-danger" role="alert" *ngIf="!email.valid && email.touched">Email é obrigatório.</div>-->
             </div>
 
-            <div class="form-group"
-                 [class.has-error]="!telefone.valid && telefone.touched"
-                 [class.has-feedback]="!telefone.valid && telefone.touched">
-              <input class="form-control phone" type="text" name="telefone" required [(ngModel)]="contato.telefone" placeholder="Telefone" #telefone="ngModel">
-              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!email.valid && email.touched"></span>
+            <div class="form-group" [class.has-error]="!telefone.valid && telefone.touched" [class.has-feedback]="!telefone.valid && telefone.touched">
+
+              <input class="form-control" type="text" name="telefone" required [(ngModel)]="contato.telefone" placeholder="Telefone" #telefone="ngModel">
+              <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!telefone.valid && telefone.touched"></span>
               <span id="telefone" class="sr-only" *ngIf="!telefone.valid && telefone.touched">(error)</span>
-              <div class="alert alert-danger" role="alert" *ngIf="!telefone.valid && telefone.touched">Telefone é obrigatório.</div>
+
+              <!--<div class="alert alert-danger" role="alert" *ngIf="!telefone.valid && telefone.touched">Telefone é obrigatório.</div>-->
             </div>
-            <div class="form-group"
-                 [class.has-error]="!mensagem.valid && mensagem.touched"
-                 [class.has-feedback]="!mensagem.valid && mensagem.touched">
-              <textarea class="form-control message" name="message" name="mensagem" required minlength="10"
-                        [(ngModel)]="contato.msg" id="message" cols="30" rows="10" placeholder="Mensagem" #mensagem="ngModel"></textarea>
-              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" *ngIf="!mensagem.valid && mensagem.touched"></span>
+
+            <div class="form-group"  [class.has-error]="!mensagem.valid && mensagem.touched" [class.has-feedback]="!mensagem.valid && mensagem.touched">
+
+              <textarea class="form-control mensagem" name="mensagem" required minlength="10"
+                        [(ngModel)]="contato.msg" cols="30" rows="10" placeholder="Mensagem" #mensagem="ngModel">
+              </textarea>
+              <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!mensagem.valid && mensagem.touched"></span>
               <span id="mensagem" class="sr-only" *ngIf="!mensagem.valid && mensagem.touched">(error)</span>
-              <div class="alert alert-danger" role="alert" *ngIf="!mensagem.valid && mensagem.touched">Mensagem é obrigatório.</div>
+
+              <!--<div class="alert alert-danger" role="alert" *ngIf="!mensagem.valid && mensagem.touched">Mensagem é obrigatório.</div>-->
             </div>
-            <button class="botao">Enviar</button>
+            <div class="form-group col-md-12 col-sm-12 has-error" style="padding-right: 0px; padding-left: 0px;">
+              <div class="col-md-6 col-sm-6" style="padding-left: 0px;">
+                <label class="control-label" *ngIf="validaCampo == false"><h4>{{campoInforme}}</h4></label>
+              </div>
+              <div class="col-md-6 col-sm-6" style="padding-right: 0px;">
+                <button class="botao">Enviar</button>
+              </div>
+            </div>
 
           </form>
         </div>

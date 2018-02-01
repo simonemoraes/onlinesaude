@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ContatoService} from './contato.service';
-import {ContatoModel} from "../model/contato.model";
+import {ContatoModel} from '../model/contato.model';
 
 @Component({
   selector: 'app-contato',
@@ -10,6 +10,8 @@ import {ContatoModel} from "../model/contato.model";
 export class ContatoComponent implements OnInit {
 
     contato = new ContatoModel();
+    validaCampo: boolean = true;
+    campoInforme: string = 'Campo com * é obrigatório.';
 
   constructor(private srvContatoService: ContatoService) { }
 
@@ -19,8 +21,18 @@ export class ContatoComponent implements OnInit {
 
   enviar(formulario) {
    // e.preventDefault(e)
-
       console.log(formulario)
+
+      if(formulario.valid == false){
+          this.validaCampo = formulario.valid;
+          this.campoInforme;
+          // console.log(this.campoInforme)
+      }else{
+          this.campoInforme = '';
+          this.validaCampo
+      }
+
+      console.log(formulario.valid)
 
       // let f = JSON.stringify(formulario)
 
