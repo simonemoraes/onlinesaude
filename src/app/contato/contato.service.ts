@@ -12,9 +12,12 @@ export class ContatoService {
     enviarFormulario (objeto: any): Observable<string> {
         let headers = new HttpHeaders();
 
-        headers.append('Content-Type', 'application/json; charset=utf-8');
+        console.log("serviço")
+        console.log(objeto)
+
+        //headers.append('Content-Type', 'application/json; charset=utf-8');
         return this.httpClient.post<string>(
-            "http://www.onlineplanos.com.br/envia-formulario.php", objeto,{headers});
+            "http://www.onlineplanos.com.br/envia-formulario.php", objeto,{});
     }
 
 

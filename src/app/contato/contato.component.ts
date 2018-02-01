@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ContatoService} from './contato.service';
+import {ContatoModel} from "../model/contato.model";
 
 @Component({
   selector: 'app-contato',
@@ -8,19 +9,22 @@ import {ContatoService} from './contato.service';
 })
 export class ContatoComponent implements OnInit {
 
-  public mensagem: string;
+    contato = new ContatoModel();
 
   constructor(private srvContatoService: ContatoService) { }
 
   ngOnInit() {
+      // this.contato = new ContatoModel();
   }
 
-  enviar(formulario, e) {
-    e.preventDefault(e)
+  enviar(formulario) {
+   // e.preventDefault(e)
 
-      let f = JSON.stringify(formulario)
+      console.log(formulario)
 
-      this.srvContatoService.enviarFormulario(f).subscribe( resp => {console.log(resp)})
+      // let f = JSON.stringify(formulario)
+
+      // this.srvContatoService.enviarFormulario(this.contato).subscribe( resp => {console.log(resp)})
   }
 
 }
