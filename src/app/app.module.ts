@@ -16,6 +16,8 @@ import { RodapeComponent } from './layout/rodape/rodape.component';
 import { PlanosComponent } from './planos/planos.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import {ContatoService} from "./contato/contato.service";
+import { CampoControlErroComponent } from './campo-control-erro/campo-control-erro.component';
+import { MensagemErroComponent } from './mensagem-erro/mensagem-erro.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {ContatoService} from "./contato/contato.service";
     MapaComponent,
     RodapeComponent,
     PlanosComponent,
-    ProdutosComponent
+    ProdutosComponent,
+    CampoControlErroComponent,
+    MensagemErroComponent
   ],
   imports: [
     BrowserModule,

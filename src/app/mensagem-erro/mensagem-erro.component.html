@@ -1,0 +1,9 @@
+
+  <div class="form-group col-md-12 col-sm-12 has-error" *ngIf="mostraMensagem" style="padding-right: 0px; padding-left: 0px;">
+    <div class="col-md-6 col-sm-6" style="padding-left: 0px;"
+         *ngIf="!nome.valid && nome.touched ||
+                     !email.valid && email.touched ||
+                      !telefone.valid && telefone.touched ||
+                      !mensagem.valid && mensagem.touched">
+      <h4 style="color: red;">Campo com <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> é obrigatório.</h4>
+    </div>

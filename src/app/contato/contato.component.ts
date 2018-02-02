@@ -10,8 +10,8 @@ import {ContatoModel} from '../model/contato.model';
 export class ContatoComponent implements OnInit {
 
     contato = new ContatoModel();
-    validaCampo: boolean = true;
-    campoInforme: string = 'Campo com * é obrigatório.';
+    // validaCampo: boolean = true;
+    // campoInforme: string = 'Campo com * é obrigatório.';
 
   constructor(private srvContatoService: ContatoService) { }
 
@@ -21,22 +21,25 @@ export class ContatoComponent implements OnInit {
 
   enviar(formulario) {
    // e.preventDefault(e)
-      console.log(formulario)
+      // console.log(formulario)
 
-      if(formulario.valid == false){
-          this.validaCampo = formulario.valid;
-          this.campoInforme;
-          // console.log(this.campoInforme)
-      }else{
-          this.campoInforme = '';
-          this.validaCampo
-      }
+      let f = JSON.stringify(formulario)
 
-      console.log(formulario.valid)
+      this.srvContatoService.enviarFormulario(f).subscribe( resp => {
+          console.log(resp)
 
-      // let f = JSON.stringify(formulario)
-
-      // this.srvContatoService.enviarFormulario(this.contato).subscribe( resp => {console.log(resp)})
+      })
   }
+
+    //verificaValidTouched(campo){
+        //     return !campo.valid && campo.touched
+        // }
+        //
+        //   aplicaCssErro(campo){
+        //    return {
+        //           'has-error': this.verificaValidTouched(campo),
+        //           'has-faeedback': this.verificaValidTouched(campo)
+        //       }
+        //   }
 
 }
