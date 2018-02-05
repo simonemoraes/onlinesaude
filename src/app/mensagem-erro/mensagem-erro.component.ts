@@ -5,9 +5,7 @@ import {Component, Input, OnInit} from '@angular/core';
   templateUrl: './mensagem-erro.component.html',
   styleUrls: ['./mensagem-erro.component.css']
 })
-export class MensagemErroComponent implements OnInit {
-
-  @Input() mostraMensagem: Boolean;
+export class MensagemErroComponent implements OnInit{
 
   constructor() { }
 

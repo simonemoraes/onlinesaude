@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ContatoService} from './contato.service';
 import {ContatoModel} from '../model/contato.model';
 
+
 @Component({
   selector: 'app-contato',
   templateUrl: './contato.component.html',
@@ -9,15 +10,22 @@ import {ContatoModel} from '../model/contato.model';
 })
 export class ContatoComponent implements OnInit {
 
+    public inptutEstaValido: boolean = true
     contato = new ContatoModel();
-    // validaCampo: boolean = true;
-    // campoInforme: string = 'Campo com * é obrigatório.';
+
+    public nomeDocampo: string = '';
 
   constructor(private srvContatoService: ContatoService) { }
 
   ngOnInit() {
       // this.contato = new ContatoModel();
   }
+
+  validarCampo(campo){
+    this.inptutEstaValido = campo.input.valid
+    this.nomeDocampo = campo.input.name
+  }
+
 
   enviar(formulario) {
    // e.preventDefault(e)
@@ -30,16 +38,5 @@ export class ContatoComponent implements OnInit {
 
       })
   }
-
-    //verificaValidTouched(campo){
-        //     return !campo.valid && campo.touched
-        // }
-        //
-        //   aplicaCssErro(campo){
-        //    return {
-        //           'has-error': this.verificaValidTouched(campo),
-        //           'has-faeedback': this.verificaValidTouched(campo)
-        //       }
-        //   }
 
 }

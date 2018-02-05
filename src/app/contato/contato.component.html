@@ -29,46 +29,32 @@
           <!--</div>-->
 
 
-          <!--<h4>{{ f.valid }} {{ f.value | json }}</h4>-->
+          <h4>{{ f.valid }} {{ f.value | json }}</h4>
 
           <form #f="ngForm" (ngSubmit)="enviar(f.value)">
 
-            <div class="form-group" [class.has-error]="!nome.valid && nome.touched" [class.has-feedback]="!nome.valid && nome.touched">
-              <input class="form-control nome" type="text" name="nome" required [(ngModel)]="contato.nome" placeholder="Nome" #nome="ngModel">
-              <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!nome.valid && nome.touched"></span>
-              <span id="nome" class="sr-only" *ngIf="!nome.valid && nome.touched">(error)</span>
-            </div>
+            <app-input-container #iptnome>
+              <input (blur)="validarCampo(iptnome)" class="form-control" type="text" name="nome" required ngModel placeholder="Nome" autocomplete="off">
+            </app-input-container>
 
-            <div class="form-group" [class.has-error]="!email.valid && email.touched" [class.has-feedback]="!email.valid && email.touched">
-              <input class="form-control" type="email" name="email" required email="true" [(ngModel)]="contato.email" placeholder="Email - Ex.: email@email.com" #email="ngModel">
-              <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!email.valid && email.touched"></span>
-              <span id="email" class="sr-only" *ngIf="!email.valid && email.touched">(error)</span>
-            </div>
+            <app-input-container #itpemail>
+              <input (blur)="validarCampo(itpemail)" class="form-control" type="email" email="true"  name="email" required ngModel placeholder="Email" autocomplete="off">
+            </app-input-container>
 
-            <div class="form-group" [class.has-error]="!telefone.valid && telefone.touched" [class.has-feedback]="!telefone.valid && telefone.touched">
-              <input class="form-control" type="text" name="telefone" required [(ngModel)]="contato.telefone" placeholder="Telefone - Ex.: (xx)xxxxx-xxxx" #telefone="ngModel">
-              <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!telefone.valid && telefone.touched"></span>
-              <span id="telefone" class="sr-only" *ngIf="!telefone.valid && telefone.touched">(error)</span>
-            </div>
+            <app-input-container #itptelefone>
+              <input (blur)="validarCampo(itptelefone)" class="form-control" type="text" name="telefone" required ngModel placeholder="Telefone" autocomplete="off">
+            </app-input-container>
 
-            <div class="form-group"  [class.has-error]="!mensagem.valid && mensagem.touched" [class.has-feedback]="!mensagem.valid && mensagem.touched">
-              <textarea class="form-control mensagem" name="mensagem" required minlength="10"
-                        [(ngModel)]="contato.msg" cols="30" rows="10" placeholder="Mensagem" #mensagem="ngModel">
-              </textarea>
-              <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!mensagem.valid && mensagem.touched"></span>
-              <span id="mensagem" class="sr-only" *ngIf="!mensagem.valid && mensagem.touched">(error)</span>
-            </div>
+            <app-input-container #iptmensagem>
+              <textarea (blur)="validarCampo(iptmensagem)" class="form-control mensagem" name="mensagem" required minlength="5" ngModel placeholder="Mensagem" autocomplete="off"></textarea>
+            </app-input-container>
 
             <!-- Mensagem de validação de campos -->
             <div class="form-group col-md-12 col-sm-12 has-error" style="padding-right: 0px; padding-left: 0px;">
-              <div class="col-md-6 col-sm-6" style="padding-left: 0px;"
-                   *ngIf="!nome.valid && nome.touched ||
-                     !email.valid && email.touched ||
-                      !telefone.valid && telefone.touched ||
-                      !mensagem.valid && mensagem.touched">
-                <h4 style="color: red;">Campo com <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> é obrigatório.</h4>
+              <div *ngIf="!inptutEstaValido" class="col-md-6 col-sm-6" style="padding-left: 0px;">
+                <h4 style="color: red;"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Campo <strong>{{nomeDocampo}}</strong> inválido! </h4>
               </div>
-              <!-- Mensagem de validação de campos -->
+               <!--Mensagem de validação de campos -->
 
               <div class="col-md-6 col-sm-6"  style="padding-right: 0px; float: right;">
                 <button type="submit" class="btn botao" [disabled]="!f.valid">Enviar</button>

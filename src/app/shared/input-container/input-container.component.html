@@ -1,0 +1,9 @@
+<div class="form-group has-feedback"
+     [class.has-error]="!input.valid && (input.dirty || input.touched)"
+     [class.has-success]="input.valid && (input.dirty || input.touched)">
+
+  <ng-content></ng-content>
+
+  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" *ngIf="input.valid && (input.dirty || input.touched)"></span>
+  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!input.valid && (input.dirty || input.touched)"></span>
+</div>

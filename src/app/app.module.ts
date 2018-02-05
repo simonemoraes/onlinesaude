@@ -18,6 +18,8 @@ import { ProdutosComponent } from './produtos/produtos.component';
 import {ContatoService} from "./contato/contato.service";
 import { CampoControlErroComponent } from './campo-control-erro/campo-control-erro.component';
 import { MensagemErroComponent } from './mensagem-erro/mensagem-erro.component';
+import { InputContainerComponent } from './shared/input-container/input-container.component';
+
 
 
 @NgModule({
@@ -34,14 +36,15 @@ import { MensagemErroComponent } from './mensagem-erro/mensagem-erro.component';
     PlanosComponent,
     ProdutosComponent,
     CampoControlErroComponent,
-    MensagemErroComponent
+    MensagemErroComponent,
+    InputContainerComponent,
+
   ],
   imports: [
     BrowserModule,
-      FormsModule,
-      HttpClientModule,
-
-      AppRoutingModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [ContatoService],
   bootstrap: [AppComponent]
