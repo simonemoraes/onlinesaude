@@ -19,6 +19,7 @@ import {ContatoService} from "./contato/contato.service";
 import { CampoControlErroComponent } from './campo-control-erro/campo-control-erro.component';
 import { MensagemErroComponent } from './mensagem-erro/mensagem-erro.component';
 import { InputContainerComponent } from './shared/input-container/input-container.component';
+import {InputContainerService} from "./shared/input-container/input-container.service";
 
 
 
@@ -46,7 +47,7 @@ import { InputContainerComponent } from './shared/input-container/input-containe
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ContatoService],
+  providers: [ContatoService, InputContainerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

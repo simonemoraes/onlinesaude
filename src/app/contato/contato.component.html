@@ -33,6 +33,7 @@
 
           <form #f="ngForm" (ngSubmit)="enviar(f.value)">
 
+
             <app-input-container #iptnome>
               <input (blur)="validarCampo(iptnome)" class="form-control" type="text" name="nome" required ngModel placeholder="Nome" autocomplete="off">
             </app-input-container>
@@ -50,6 +51,7 @@
             </app-input-container>
 
             <!-- Mensagem de validação de campos -->
+
             <div class="form-group col-md-12 col-sm-12 has-error" style="padding-right: 0px; padding-left: 0px;">
               <div *ngIf="!inptutEstaValido" class="col-md-6 col-sm-6" style="padding-left: 0px;">
                 <h4 style="color: red;"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Campo <strong>{{nomeDocampo}}</strong> inválido! </h4>

@@ -19,10 +19,12 @@ export class ContatoComponent implements OnInit {
 
   ngOnInit() {
       // this.contato = new ContatoModel();
+
+
   }
 
   validarCampo(campo){
-    this.inptutEstaValido = campo.input.valid
+    this.inptutEstaValido = campo.input.valid && (campo.dirty || campo.touched)
     this.nomeDocampo = campo.input.name
   }
 
