@@ -7,8 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CampoControlErroComponent implements OnInit {
 
-  @Input() mostrarTipoErro: boolean;
-  @Input() mostraTipoSucesso: boolean;
+  @Input() icone: boolean
 
 
   constructor() { }

@@ -19,34 +19,53 @@ export class ContatoComponent implements OnInit {
   ngOnInit() {
   }
 
-  verificaValidTouchedErro(campo){
+  // verificaValidTouchedErro(campo){
+  //   return !campo.valid && (campo.dirty || campo.touched)
+  // }
+  //
+  // verificaValidTouchedSuccess(campo){
+  //   return campo.valid && (campo.dirty || campo.touched)
+  // }
+
+  public validaMensagem(campo){
     return !campo.valid && (campo.dirty || campo.touched)
   }
 
-  verificaValidTouchedSuccess(campo){
-    return campo.valid && (campo.dirty || campo.touched)
+  validaCssInput(campo){
+    if(!campo.valid && (campo.dirty || campo.touched)){
+      return !campo.valid && (campo.dirty || campo.touched)
+    }else{
+      return campo.valid && (campo.dirty || campo.touched)
+    }
+  }
+
+  validaIconeInput(campo){
+    if(!campo.valid && (campo.dirty || campo.touched)){
+      return {
+        'glyphicon glyphicon-asterisk form-control-feedback': this.validaCssInput(campo)
+      }
+    }else{
+      return {
+        'glyphicon glyphicon-ok form-control-feedback': this.validaCssInput(campo)
+      }
+    }
   }
 
   aplicaCssErro(campo){
 
-    let erro = !campo.valid && (campo.dirty || campo.touched)
-    let sucesso = campo.valid && (campo.dirty || campo.touched)
-
     if(!campo.valid && (campo.dirty || campo.touched)){
       return {
-        'has-error': this.verificaValidTouchedErro(campo)
+        'has-error': this.validaCssInput(campo)
       }
     }else{
       return {
-        'has-success': this.verificaValidTouchedSuccess(campo)
+        'has-success': this.validaCssInput(campo)
       }
     }
   }
 
   enviar(formulario) {
     let f = JSON.stringify(formulario.value)
-
-
 
     this.srvContatoService.enviarFormulario(f).subscribe( resp => {
       this.mensagemEnviada = resp

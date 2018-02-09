@@ -677,6 +677,12 @@ li a.active {
     padding-right: 40px;
 }
 
+.contact-form .form-control {
+  font-size: 24px;
+  font-family: 'BenchNine', sans-serif;
+  font-weight: bold;
+}
+
 /*gmap*/
 
 #map {
