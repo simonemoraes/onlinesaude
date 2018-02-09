@@ -1,36 +1,16 @@
-import {Component, OnInit, ContentChild, AfterContentInit, Input} from '@angular/core';
-import { NgModel } from '@angular/forms';
-
-import { InputContainerService } from './input-container.service';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-input-container',
   templateUrl: './input-container.component.html',
   styleUrls: ['./input-container.component.css']
 })
-export class InputContainerComponent implements OnInit, AfterContentInit{
+export class InputContainerComponent implements OnInit {
 
-  input: any;
+  @Input() mostraMensagem: string;
 
-  // inputCampo: boolean;
-
-  @ContentChild(NgModel) model: NgModel;
-
-
-  constructor(private inputService: InputContainerService) {}
+  constructor() {}
 
   ngOnInit() {}
-
-  validaCampo(campo){
-    // this.inputService.getInput(campo)
-  }
-
-  ngAfterContentInit() {
-    this.input = this.model;
-    if(this.input === undefined){
-      throw new Error("Este component..");
-    }
-
-  }
 
 }

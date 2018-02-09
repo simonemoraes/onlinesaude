@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {InputContainerService} from "../shared/input-container/input-container.service";
 
 @Component({
   selector: 'app-mensagem-erro',
@@ -8,10 +7,10 @@ import {InputContainerService} from "../shared/input-container/input-container.s
 })
 export class MensagemErroComponent implements OnInit{
 
-  constructor(private mensagemService: InputContainerService) { }
+  @Input() msgErro: boolean;
 
-  ngOnInit() {
-    console.log('mensagemService')
-  }
 
+  constructor() {}
+
+  ngOnInit() {}
 }

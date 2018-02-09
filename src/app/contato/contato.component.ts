@@ -10,35 +10,50 @@ import {ContatoModel} from '../model/contato.model';
 })
 export class ContatoComponent implements OnInit {
 
-    public inptutEstaValido: boolean = true
-    contato = new ContatoModel();
-
-    public nomeDocampo: string = '';
+  contato = new ContatoModel();
+  @Input() campoInvalido: boolean = true;
+  @Input() mensagemEnviada: any
 
   constructor(private srvContatoService: ContatoService) { }
 
   ngOnInit() {
-      // this.contato = new ContatoModel();
-
-
   }
 
-  validarCampo(campo){
-    this.inptutEstaValido = campo.input.valid && (campo.dirty || campo.touched)
-    this.nomeDocampo = campo.input.name
+  verificaValidTouchedErro(campo){
+    return !campo.valid && (campo.dirty || campo.touched)
   }
 
+  verificaValidTouchedSuccess(campo){
+    return campo.valid && (campo.dirty || campo.touched)
+  }
+
+  aplicaCssErro(campo){
+
+    let erro = !campo.valid && (campo.dirty || campo.touched)
+    let sucesso = campo.valid && (campo.dirty || campo.touched)
+
+    if(!campo.valid && (campo.dirty || campo.touched)){
+      return {
+        'has-error': this.verificaValidTouchedErro(campo)
+      }
+    }else{
+      return {
+        'has-success': this.verificaValidTouchedSuccess(campo)
+      }
+    }
+  }
 
   enviar(formulario) {
-   // e.preventDefault(e)
-      // console.log(formulario)
+    let f = JSON.stringify(formulario.value)
 
-      let f = JSON.stringify(formulario)
 
-      this.srvContatoService.enviarFormulario(f).subscribe( resp => {
-          console.log(resp)
 
-      })
+    this.srvContatoService.enviarFormulario(f).subscribe( resp => {
+      this.mensagemEnviada = resp
+      this.contato = new ContatoModel()
+
+      formulario.reset()
+    })
   }
 
 }

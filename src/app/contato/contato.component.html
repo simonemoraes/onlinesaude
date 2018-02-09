@@ -19,50 +19,59 @@
         </div>
 
         <div class="col-md-6 col-md-offset-1 contact-form">
+
+          <app-mensagem-enviada id="fadeAlert" *ngIf="mensagemEnviada == 'sucesso'"></app-mensagem-enviada>
+
           <h3>Deixe sua Mensagem</h3>
 
-          <!--<div class="alert alert-danger alert-dismissible" role="alert">-->
-          <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-          <!--<span aria-hidden="true">&times;</span>-->
-          <!--</button>-->
+          <form #f="ngForm" >
 
-          <!--</div>-->
+            <app-input-container [ngClass]="aplicaCssErro(nome)">
+              <input class="form-control" type="text" name="nome" required #nome="ngModel" [(ngModel)]="contato.nome" placeholder="Nome" autocomplete="off">
 
+              <app-campo-control-erro [mostrarTipoErro]="verificaValidTouchedErro(nome)"></app-campo-control-erro>
+              <app-campo-control-erro [mostraTipoSucesso]="verificaValidTouchedSuccess(nome)"></app-campo-control-erro>
 
-          <h4>{{ f.valid }} {{ f.value | json }}</h4>
-
-          <form #f="ngForm" (ngSubmit)="enviar(f.value)">
-
-
-            <app-input-container #iptnome>
-              <input (blur)="validarCampo(iptnome)" class="form-control" type="text" name="nome" required ngModel placeholder="Nome" autocomplete="off">
             </app-input-container>
 
-            <app-input-container #itpemail>
-              <input (blur)="validarCampo(itpemail)" class="form-control" type="email" email="true"  name="email" required ngModel placeholder="Email" autocomplete="off">
+            <app-input-container [ngClass]="aplicaCssErro(email)">
+              <input class="form-control" type="text" name="email" required email="true" #email="ngModel" [(ngModel)]="contato.email" placeholder="email@email.com" autocomplete="off">
+
+              <app-campo-control-erro [mostrarTipoErro]="verificaValidTouchedErro(email)"></app-campo-control-erro>
+              <app-campo-control-erro [mostraTipoSucesso]="verificaValidTouchedSuccess(email)"></app-campo-control-erro>
+
             </app-input-container>
 
-            <app-input-container #itptelefone>
-              <input (blur)="validarCampo(itptelefone)" class="form-control" type="text" name="telefone" required ngModel placeholder="Telefone" autocomplete="off">
+            <app-input-container [ngClass]="aplicaCssErro(telefone)">
+              <input class="form-control" type="text" name="telefone" required #telefone="ngModel" [(ngModel)]="contato.telefone" placeholder="Telefone" autocomplete="off">
+
+              <app-campo-control-erro [mostrarTipoErro]="verificaValidTouchedErro(telefone)"></app-campo-control-erro>
+              <app-campo-control-erro [mostraTipoSucesso]="verificaValidTouchedSuccess(telefone)"></app-campo-control-erro>
+
             </app-input-container>
 
-            <app-input-container #iptmensagem>
-              <textarea (blur)="validarCampo(iptmensagem)" class="form-control mensagem" name="mensagem" required minlength="5" ngModel placeholder="Mensagem" autocomplete="off"></textarea>
-            </app-input-container>
+            <app-input-container [ngClass]="aplicaCssErro(mensagem)">
+              <textarea class="form-control mensagem" name="mensagem" required minlength="5" #mensagem="ngModel" [(ngModel)]="contato.mensagem" placeholder="Mensagem" autocomplete="off"></textarea>
 
-            <!-- Mensagem de validação de campos -->
+              <app-campo-control-erro [mostrarTipoErro]="verificaValidTouchedErro(mensagem)"></app-campo-control-erro>
+              <app-campo-control-erro [mostraTipoSucesso]="verificaValidTouchedSuccess(mensagem)"></app-campo-control-erro>
+            </app-input-container>
 
             <div class="form-group col-md-12 col-sm-12 has-error" style="padding-right: 0px; padding-left: 0px;">
-              <div *ngIf="!inptutEstaValido" class="col-md-6 col-sm-6" style="padding-left: 0px;">
-                <h4 style="color: red;"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> Campo <strong>{{nomeDocampo}}</strong> inválido! </h4>
-              </div>
-               <!--Mensagem de validação de campos -->
+              <!-- Mensagem de validação de campos -->
 
+              <app-mensagem-erro *ngIf="!nome.valid && nome.touched ||
+                          !email.valid && email.touched ||
+                            !telefone.valid && telefone.touched ||
+                          !mensagem.valid && mensagem.touched">
+              </app-mensagem-erro>
+
+              <!--Mensagem de validação de campos    -->
               <div class="col-md-6 col-sm-6"  style="padding-right: 0px; float: right;">
-                <button type="submit" class="btn botao" [disabled]="!f.valid">Enviar</button>
+                <button (click)="enviar(f)" class="btn botao" [disabled]="!f.valid">Enviar</button>
               </div>
-            </div>
 
+            </div>
           </form>
         </div>
       </div>

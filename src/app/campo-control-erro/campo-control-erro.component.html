@@ -1,14 +1,12 @@
 <div *ngIf="mostrarTipoErro">
 
-  <span class="glyphicon glyphicon-asterisk form-control-feedback"></span>
+  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
   <span class="sr-only">(error)</span>
 
-  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" *ngIf="email.valid && (email.dirty || email.touched)"></span>
-  <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true" *ngIf="!email.valid && (email.dirty || email.touched)"></span>
 </div>
 
-<!--<ng-template #templateSuccess>-->
-  <!--<span class="glyphicon glyphicon-ok form-control-feedback"></span>-->
-  <!--<span class="sr-only">(success)</span>-->
-<!--</ng-template>-->
+<div *ngIf="mostraTipoSucesso">
 
+  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+  <span class="sr-only">(success)</span>
+</div>

@@ -19,9 +19,7 @@ import {ContatoService} from "./contato/contato.service";
 import { CampoControlErroComponent } from './campo-control-erro/campo-control-erro.component';
 import { MensagemErroComponent } from './mensagem-erro/mensagem-erro.component';
 import { InputContainerComponent } from './shared/input-container/input-container.component';
-import {InputContainerService} from "./shared/input-container/input-container.service";
-
-
+import { MensagemEnviadaComponent } from './mensagem-enviada/mensagem-enviada.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +37,7 @@ import {InputContainerService} from "./shared/input-container/input-container.se
     CampoControlErroComponent,
     MensagemErroComponent,
     InputContainerComponent,
+    MensagemEnviadaComponent,
 
   ],
   imports: [
@@ -47,7 +46,7 @@ import {InputContainerService} from "./shared/input-container/input-container.se
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ContatoService, InputContainerService],
+  providers: [ContatoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
