@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule  } from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -20,6 +20,8 @@ import { CampoControlErroComponent } from './campo-control-erro/campo-control-er
 import { MensagemErroComponent } from './mensagem-erro/mensagem-erro.component';
 import { InputContainerComponent } from './shared/input-container/input-container.component';
 import { MensagemEnviadaComponent } from './mensagem-enviada/mensagem-enviada.component';
+import { ContatoFormularioReativoComponent } from './contato-formulario-reativo/contato-formulario-reativo.component';
+import { FormDebugComponent } from './form-debug/form-debug.component';
 
 @NgModule({
   declarations: [
@@ -38,11 +40,13 @@ import { MensagemEnviadaComponent } from './mensagem-enviada/mensagem-enviada.co
     MensagemErroComponent,
     InputContainerComponent,
     MensagemEnviadaComponent,
-
+    ContatoFormularioReativoComponent,
+    FormDebugComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

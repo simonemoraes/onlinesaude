@@ -1,0 +1,101 @@
+<app-mapa></app-mapa>
+<!-- contact section starts here -->
+<section class="contact contato">
+  <div class="container">
+    <div class="row">
+      <div class="contact-caption clearfix">
+        <div class="contact-heading text-center">
+          <h2>Contato</h2>
+        </div>
+        <div class="col-md-5 contact-info text-left">
+          <h3>informações de Contato</h3>
+          <div class="info-detail">
+            <ul><li><i class="fa fa-calendar"></i><span>Segunda - Sexta:</span> 9:30 as 19:00</li></ul>
+            <ul><li><p><i class="fa fa-map-marker"></i><span>End:</span> Av Comendador Teles, 1758 Lt.03 Qd.06 - São João de Meriti - RJ</p></li></ul>
+            <ul><li><i class="fa fa-phone"></i><span>Telefone:</span> (21) 98740-4766</li></ul>
+            <ul><li><i class="fa fa-envelope"></i><span>Email:</span> contato@dtconsultoria.com.br</li></ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-md-offset-1 contact-form">
+
+          <app-mensagem-enviada id="fadeAlert" *ngIf="mensagemEnviada == 'sucesso'"></app-mensagem-enviada>
+
+          <h3>Deixe sua Mensagem</h3>
+
+          <form [formGroup]="formulario">
+
+            <div class="form-group has-feedback" [ngClass]="aplicaCssErro('nome')">
+              <input  [ngClass]="validaMensagem('nome')"  class="form-control" type="text" formControlName="nome" placeholder="Nome" autocomplete="off">
+              <app-campo-control-erro [ngClass]="validaIconeInput('nome')"></app-campo-control-erro>
+            </div>
+
+            <!--<app-input-container [ngClass]="aplicaCssErro('nome')">-->
+              <!--<input  [ngClass]="validaMensagem('nome')"  class="form-control" type="text" formControlName="nome" placeholder="Nome" autocomplete="off">-->
+              <!--<app-campo-control-erro [ngClass]="validaIconeInput('nome')"></app-campo-control-erro>-->
+            <!--</app-input-container>-->
+
+            <div class="form-group has-feedback" [ngClass]="aplicaCssErro('email')">
+              <input [ngClass]="validaMensagem('email')"  class="form-control" type="email" formControlName="email" placeholder="email@email.com" autocomplete="off">
+              <app-campo-control-erro [ngClass]="validaIconeInput('email')"></app-campo-control-erro>
+            </div>
+
+            <!--<app-input-container [ngClass]="aplicaCssErro('email')">-->
+                <!--<input [ngClass]="validaMensagem('email')"  class="form-control" type="email" formControlName="email" placeholder="email@email.com" autocomplete="off">-->
+                <!--<app-campo-control-erro [ngClass]="validaIconeInput('email')"></app-campo-control-erro>-->
+            <!--</app-input-container>-->
+
+            <div class="form-group has-feedback" [ngClass]="aplicaCssErro('telefone')">
+              <input [ngClass]="validaMensagem('telefone')" id="telefone" class="form-control" type="text" formControlName="telefone" placeholder="(xx)0000-00000" autocomplete="off">
+              <app-campo-control-erro [ngClass]="validaIconeInput('telefone')"></app-campo-control-erro>
+            </div>
+
+            <!--<div class="form-group">-->
+              <!--<input id="id_data" class="form-control" type="text" placeholder="dd/mm/yyyy" autocomplete="off">-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+              <!--<input id="id_cep" class="form-control" type="text" placeholder="Cep" autocomplete="off">-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+              <!--<input id="id_cpf" class="form-control" type="text" placeholder="Cpf" autocomplete="off">-->
+            <!--</div>-->
+
+            <!--pattern="[0-9]{8,11}"-->
+            <!--<app-input-container [ngClass]="aplicaCssErro('telefone')">-->
+              <!--<input [ngClass]="validaMensagem('telefone')"  class="form-control" type="text" formControlName="telefone" placeholder="Telefone" autocomplete="off">-->
+              <!--<app-campo-control-erro [ngClass]="validaIconeInput('telefone')"></app-campo-control-erro>-->
+            <!--</app-input-container>-->
+
+            <div class="form-group has-feedback" [ngClass]="aplicaCssErro('mensagem')">
+              <textarea [ngClass]="validaMensagem('mensagem')"  class="form-control mensagem" formControlName="mensagem" placeholder="Mensagem" autocomplete="off"></textarea>
+              <app-campo-control-erro [ngClass]="validaIconeInput('mensagem')"></app-campo-control-erro>
+            </div>
+
+            <!--<app-input-container [ngClass]="aplicaCssErro('mensagem')">-->
+              <!--<textarea [ngClass]="validaMensagem('mensagem')"  class="form-control mensagem" formControlName="mensagem" placeholder="Mensagem" autocomplete="off"></textarea>-->
+              <!--<app-campo-control-erro [ngClass]="validaIconeInput('mensagem')"></app-campo-control-erro>-->
+            <!--</app-input-container>-->
+
+            <div class="col-md-12 col-sm-12" style="padding-right: 0px; padding-left: 0px;">
+
+               <!--Mensagem de validação de campos-->
+              <app-mensagem-erro [campoInvalido]="mostraMensagem"></app-mensagem-erro>
+
+              <!--Mensagem de validação de campos    -->
+
+              <div class="col-md-6 col-sm-6"  style="padding-right: 0px; float: right;">
+                <button class="btn botao" [disabled]="!formulario.valid" (click)="enviarReativo()" >Enviar</button>
+              </div>
+
+            </div>
+
+            <!--<app-form-debug [form]="formulario"></app-form-debug>-->
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- end of contact section -->

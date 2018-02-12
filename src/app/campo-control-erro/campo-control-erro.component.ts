@@ -9,7 +9,6 @@ export class CampoControlErroComponent implements OnInit {
 
   @Input() icone: boolean
 
-
   constructor() { }
 
   ngOnInit() {}

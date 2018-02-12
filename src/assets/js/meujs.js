@@ -38,6 +38,7 @@ $(document).ready( function(){
         $(this).addClass('active');
     });
 
+
 //this code is for smooth scroll and nav selector
 
 
@@ -70,5 +71,13 @@ $(document).ready( function(){
             });
         }
     });
+
+    /* Mascara para telefone */
+    $('#telefone').mask("(00)0000-00009")
+
+  // $('#id_data').mask('00/00/0000')
+  // $('#id_cep').mask('00.000-000')
+  // $('#id_cpf').mask('000.000.000-00', {reverse: true})
+
 
 });

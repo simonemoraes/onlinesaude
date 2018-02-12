@@ -7,6 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MensagemErroComponent implements OnInit{
 
+  @Input() campoInvalido: boolean;
+
   constructor() {}
 
   ngOnInit() {}

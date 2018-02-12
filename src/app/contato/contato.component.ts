@@ -11,24 +11,27 @@ import {ContatoModel} from '../model/contato.model';
 export class ContatoComponent implements OnInit {
 
   contato = new ContatoModel();
-  @Input() campoInvalido: boolean = true;
+
   @Input() mensagemEnviada: any
+
+  public mostraMensagem: boolean;
 
   constructor(private srvContatoService: ContatoService) { }
 
   ngOnInit() {
   }
 
-  // verificaValidTouchedErro(campo){
-  //   return !campo.valid && (campo.dirty || campo.touched)
-  // }
-  //
-  // verificaValidTouchedSuccess(campo){
-  //   return campo.valid && (campo.dirty || campo.touched)
-  // }
-
   public validaMensagem(campo){
-    return !campo.valid && (campo.dirty || campo.touched)
+
+    if(campo != null){
+      if(!campo.valid && (campo.dirty || campo.touched)){
+        this.mostraMensagem = !campo.valid && (campo.dirty || campo.touched)
+      }
+
+      if(campo.valid && (campo.dirty || campo.touched)){
+        this.mostraMensagem = false
+      }
+    }
   }
 
   validaCssInput(campo){
